@@ -125,22 +125,22 @@ public class Program
     {
         int count = 0;
         int currentSum = 0;
-        Dictionary<int, int> prefixSums = new Dictionary<int, int>();
-        prefixSums[0] = 1;
+        Dictionary<int, int> sumCounts = new Dictionary<int, int>();
+        sumCounts[0] = 1;
         foreach (int num in arr)
         {
             currentSum += num;
-            if (prefixSums.ContainsKey(currentSum - x))
+            if (sumCounts.ContainsKey(currentSum - x))
             {
-                count += prefixSums[currentSum - x];
+                count += sumCounts[currentSum - x];
             }
-            if (prefixSums.ContainsKey(currentSum))
+            if (sumCounts.ContainsKey(currentSum))
             {
-                prefixSums[currentSum]++;
+                sumCounts[currentSum]++;
             }
             else
             {
-                prefixSums[currentSum] = 1;
+                sumCounts[currentSum] = 1;
             }
         }
         return count;
